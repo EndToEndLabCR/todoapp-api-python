@@ -7,7 +7,7 @@ from src.app.features.user_management.application.use_cases.write.update_user_ca
 from src.app.features.user_management.application.use_cases.read.get_all_users_case import GetAllUsersUseCase
 from src.app.features.user_management.application.use_cases.read.get_user_by_id_case import GetUserByIdUseCase
 from src.app.features.user_management.application.use_cases.read.get_users_by_role_case import GetUsersByRoleUseCase
-from src.app.features.user_management.domain.repositories.user_repository import UserRepository
+from src.app.features.user_management.application.repository.user_repository import UserRepository
 
 
 class UserService:

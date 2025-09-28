@@ -3,7 +3,7 @@ from uuid import UUID
 from src.app.features.user_management.application.dtos.user_dto import UserResponse
 from src.app.features.user_management.application.exceptions.user_exceptions import UserDoesNotExistException
 from src.app.features.user_management.application.dtos.user_dto_mapper import map_entity_to_dto_user
-from src.app.features.user_management.domain.repositories.user_repository import UserRepository
+from src.app.features.user_management.application.repository.user_repository import UserRepository
 from src.app.features.user_management.domain.value_objects.user_id import UserId
 from src.shared.utils.log_util import log
 
