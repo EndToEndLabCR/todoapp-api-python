@@ -13,7 +13,7 @@ app_version = config.get_config("app.version")
 
 fastApiApp = FastAPI(title=app_name, root_path="/api", version=app_version)
 
-if ENV not in ("local", "container"):
+if ENV not in ("local", "docker"):
     fastApiApp.docs_url = None
     fastApiApp.redoc_url = None
     fastApiApp.openapi_url = None
