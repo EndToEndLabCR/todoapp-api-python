@@ -8,7 +8,7 @@ from src.app.features.user_management.application.exceptions.user_exceptions imp
     UserAlreadyExistsException,
 )
 from src.app.features.user_management.application.services.user_service import UserService
-from src.app.presentation.web.dependencies import get_user_service
+from src.app.features.user_management.presentation.web.dependencies import get_user_service
 from src.shared.utils.log_util import log
 
 # Define the user management router
