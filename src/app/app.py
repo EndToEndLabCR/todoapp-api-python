@@ -37,4 +37,9 @@ def get_health_check():
     return "Ok"
 
 
+@fastApiApp.get("/")
+def root():
+    return {"message": "Welcome to the Todo API!"}
+
+
 fastApiApp.include_router(user_router, prefix="/v1/user", tags=["Users"])
