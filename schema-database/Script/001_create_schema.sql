@@ -4,6 +4,7 @@ CREATE TABLE user (
     user_email VARCHAR(100) UNIQUE NOT NULL,
     user_password TEXT NOT NULL,
     created_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP NOT NULL
+    updated_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
 );
 
 -- COMMENT
@@ -13,6 +14,7 @@ COMMENT ON COLUMN user.user_name IS 'Unique username chosen by the user.';
 COMMENT ON COLUMN user.user_email IS 'Unique email address of the user.';
 COMMENT ON COLUMN user.user_password IS 'Password for authentication.';
 COMMENT ON COLUMN user.created_at IS 'Timestamp when the user account was created.';
+COMMENT ON COLUMN user.updated_at IS 'Timestamp when the user account was last updated.';
 
 -- ALTER
 -- ALTER TABLE user ADD user_role VARCHAR(50) DEFAULT 'user';
@@ -30,6 +32,7 @@ CREATE TABLE project (
     created_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP NOT NULL,
 
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+    updated_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
 );
 
 -- COMMENT
@@ -39,6 +42,7 @@ COMMENT ON COLUMN project.user_id IS 'Foreign key linking to the owner user.';
 COMMENT ON COLUMN project.name IS 'Name of the project.';
 COMMENT ON COLUMN project.description IS 'Optional description of the project.';
 COMMENT ON COLUMN project.created_at IS 'Timestamp when the project was created.';
+COMMENT ON COLUMN project.updated_at IS 'Timestamp when the project was last updated.';
 
 -- ALTER
 -- ALTER TABLE project ADD project_status BOOLEAN DEFAULT TRUE;
@@ -60,6 +64,7 @@ CREATE TABLE task (
 
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
     FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE SET NULL
+    updated_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
 );
 
 -- COMMENT
@@ -72,6 +77,7 @@ COMMENT ON COLUMN task.description IS 'Detailed description of the task.';
 COMMENT ON COLUMN task.due_date IS 'Optional deadline for the task.';
 COMMENT ON COLUMN task.completed IS 'Boolean flag indicating if the task is completed.';
 COMMENT ON COLUMN task.created_at IS 'Timestamp when the task was created.';
+COMMENT ON COLUMN task.updated_at IS 'Timestamp when the task was last updated.';
 
 -- ALTER
 -- ALTER TABLE task ADD priority VARCHAR(20) DEFAULT 'standard';
@@ -90,6 +96,7 @@ CREATE TABLE notification (
     created_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP NOT NULL,
 
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+    updated_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
 );
 
 -- COMMENT
@@ -99,6 +106,7 @@ COMMENT ON COLUMN notification.user_id IS 'Foreign key linking to the recipient 
 COMMENT ON COLUMN notification.message IS 'Content of the notification.';
 COMMENT ON COLUMN notification.read IS 'Boolean flag indicating if the notification has been read.';
 COMMENT ON COLUMN notification.created_at IS 'Timestamp when the notification was created.';
+COMMENT ON COLUMN notification.updated_at IS 'Timestamp when the notification was last updated.';
 
 -- ALTER
 -- ALTER TABLE notification ADD notification_type VARCHAR(50) DEFAULT 'standard';

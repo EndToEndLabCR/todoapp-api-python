@@ -16,6 +16,8 @@ user_password (TEXT): Hashed password. [Not Null]
 
 created_at (TIMESTAMP): Timestamp of user creation. [Default: current timestamp]
 
+updated_at (TIMESTAMP): Timestamp of user update. [Auto-updated on modification]
+
 ## Table: project
 
 Represents a project created by a user, grouping related tasks.
@@ -31,6 +33,8 @@ project_name (VARCHAR(100)): Name of the project. [Not Null]
 project_description (TEXT): Optional description of the project. [Not Null]
 
 created_at (TIMESTAMP): Timestamp of project creation. [Default: current timestamp]
+
+updated_at (TIMESTAMP): Timestamp of project update. [Auto-updated on modification]
 
 ## Table: task
 
@@ -54,6 +58,8 @@ completed (BOOLEAN): Completion status. [Default: FALSE]
 
 created_at (TIMESTAMP): Timestamp of task creation. [Default: current timestamp]
 
+updated_at (TIMESTAMP): Timestamp of task update. [Auto-updated on modification]
+
 ## Table: notification
 
 Stores system-generated messages for users (e.g., reminders, alerts).
@@ -69,3 +75,5 @@ message (TEXT): Notification content. [Not Null]
 read (BOOLEAN): Read status. [Default: FALSE]
 
 created_at (TIMESTAMP): Timestamp of notification creation. [Default: current timestamp]
+
+updated_at (TIMESTAMP): Timestamp of notification update. [Auto-updated on modification]
