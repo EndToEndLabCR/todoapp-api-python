@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.app.config.app_config import AppConfig
-from src.app.features.user_management.presentation.web.routes.user_routes import user_router
+from src.app.features.user_management.presentation.web.routes.user_routes import router
 
 ENV = os.getenv("APP_ENV", "local")
 
@@ -42,4 +42,4 @@ def root():
     return {"message": "Welcome to the Todo API!"}
 
 
-fastApiApp.include_router(user_router, prefix="/v1/user", tags=["Users"])
+fastApiApp.include_router(router, prefix="/v1/user", tags=["Users"])
