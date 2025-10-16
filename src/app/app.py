@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.app.config.app_config import AppConfig
-from src.app.features.user_management.presentation.web.routes.user_router import user_router
+from src.app.features.user_management.presentation.web.routes.user_routes import user_router
 
 ENV = os.getenv("APP_ENV", "local")
 
