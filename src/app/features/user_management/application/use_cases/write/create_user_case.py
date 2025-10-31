@@ -2,7 +2,7 @@ from src.app.features.user_management.application.dtos.user_dto import CreateUse
 from src.app.features.user_management.application.exceptions.user_exceptions import UserAlreadyExistsException
 from src.app.features.user_management.application.dtos.user_dto_mapper import map_dto_to_entity_user, \
     map_entity_to_dto_user
-from src.app.features.user_management.application.repository.user_repository import UserRepository
+from src.app.features.user_management.domain.repositories.user_repository import UserRepository
 from src.app.features.user_management.domain.value_objects.email import Email
 from src.shared.utils.log_util import log
 
