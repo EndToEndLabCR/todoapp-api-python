@@ -5,9 +5,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.app.config.app_config import AppConfig
 from src.app.features.user_management.application.services.user_service import UserService
-from src.app.features.user_management.infrastructure.databases.postgres.repository.user_repository_impl import \
+from src.app.features.user_management.infrastructure.persistence.databases.postgres.repository.user_repository_impl import \
     UserRepositoryImpl
-from src.shared.infrastructure.database.postgres.postgres_db_session_manager import PostgresDbSessionManager
+from src.shared.infrastructure.postgres_db_session_manager import PostgresDbSessionManager
 
 # Create a global session manager instance
 postgres_config = AppConfig.instance().get_config("postgres", {})
