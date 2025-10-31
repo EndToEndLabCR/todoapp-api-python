@@ -6,7 +6,7 @@ from sqlalchemy.exc import TimeoutError, OperationalError
 from src.shared.utils.config_util import get_config_value
 import logging as log
 
-class PostgresDbSessionManager:
+class PostgresDbConnection:
     """
     Manages an asynchronous SQLAlchemy database connection with session handling.
     """
