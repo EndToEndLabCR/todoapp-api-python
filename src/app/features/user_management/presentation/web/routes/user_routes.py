@@ -1,6 +1,6 @@
 from typing import List
 from uuid import UUID
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from src.app.features.user_management.application.dtos.user_dto import UserResponse, CreateUserRequest, UpdateUserRequest
 from src.app.features.user_management.application.exceptions.user_exceptions import (
