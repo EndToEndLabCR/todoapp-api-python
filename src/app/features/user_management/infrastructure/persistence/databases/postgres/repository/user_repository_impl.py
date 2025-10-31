@@ -6,7 +6,7 @@ from sqlalchemy.future import select
 
 from src.app.features.user_management.domain.entities.user_entity import UserEntity
 from src.app.features.user_management.domain.entities.user_enums import UserStatus, UserRole
-from src.app.features.user_management.application.repository.user_repository import UserRepository
+from src.app.features.user_management.domain.repositories.user_repository import UserRepository
 from src.app.features.user_management.domain.value_objects.email import Email
 from src.app.features.user_management.domain.value_objects.user_id import UserId
 from src.app.features.user_management.infrastructure.persistence.databases.postgres.models.user_model import UserModel
