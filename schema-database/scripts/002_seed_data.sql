@@ -1,4 +1,4 @@
-INSERT INTO user (id, user_name, user_email, user_password)
+INSERT INTO users (id, user_name, user_email, user_password)
 VALUES
   ('98610c7e-054b-4d03-8218-4ba82b868736', 'Alonso', 'alonso@example.com', 'password_pw_1'),
   ('39333a60-ff2e-4698-a601-b84afca52d2e', 'Derian', 'derian@example.com', 'password_pw_2'),

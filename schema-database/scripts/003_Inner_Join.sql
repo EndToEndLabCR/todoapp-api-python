@@ -2,5 +2,5 @@ SELECT U.user_name,P.project_name,P.project_description,T.task_title, T.task_des
 FROM task T
 INNER JOIN project P 
 ON P.id = T.project_id
-INNER JOIN user U
+INNER JOIN users U
 ON U.id = T.user_id
