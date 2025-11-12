@@ -24,7 +24,7 @@ COMMENT ON COLUMN users.updated_at IS 'Timestamp when the user account was last 
 
 -- ****************************************************************
 
-CREATE TABLE project (
+CREATE TABLE projects (
     id UUID PRIMARY KEY,
     user_id UUID NOT NULL,
     project_name VARCHAR(100) NOT NULL,
@@ -35,23 +35,23 @@ CREATE TABLE project (
 );
 
 -- COMMENT
-COMMENT ON TABLE project IS 'Represents a user-defined project grouping multiple tasks.';
-COMMENT ON COLUMN project.id IS 'Primary key for the project.';
-COMMENT ON COLUMN project.user_id IS 'Foreign key linking to the owner user.';
-COMMENT ON COLUMN project.project_name IS 'Name of the project.';
-COMMENT ON COLUMN project.project_description IS 'Optional description of the project.';
-COMMENT ON COLUMN project.created_at IS 'Timestamp when the project was created.';
-COMMENT ON COLUMN project.updated_at IS 'Timestamp when the project was last updated.';
+COMMENT ON TABLE projects IS 'Represents a user-defined project grouping multiple tasks.';
+COMMENT ON COLUMN projects.id IS 'Primary key for the project.';
+COMMENT ON COLUMN projects.user_id IS 'Foreign key linking to the owner user.';
+COMMENT ON COLUMN projects.project_name IS 'Name of the project.';
+COMMENT ON COLUMN projects.project_description IS 'Optional description of the project.';
+COMMENT ON COLUMN projects.created_at IS 'Timestamp when the project was created.';
+COMMENT ON COLUMN projects.updated_at IS 'Timestamp when the project was last updated.';
 
 -- ALTER
--- ALTER TABLE project ADD project_status BOOLEAN DEFAULT TRUE;
+-- ALTER TABLE projects ADD project_status BOOLEAN DEFAULT TRUE;
 
 -- UPDATE 
--- UPDATE project SET project_status = FALSE WHERE id = '...';
+-- UPDATE projects SET project_status = FALSE WHERE id = '...';
 
 -- ****************************************************************
 
-CREATE TABLE task (
+CREATE TABLE tasks (
     id UUID PRIMARY KEY,
     project_id UUID,
     user_id UUID NOT NULL,
@@ -62,31 +62,31 @@ CREATE TABLE task (
     created_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE SET NULL
+    FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
 );
 
 -- COMMENT
-COMMENT ON TABLE task IS 'Stores individual tasks assigned to user.';
-COMMENT ON COLUMN task.id IS 'Primary key for the task.';
-COMMENT ON COLUMN task.project_id IS 'Optional foreign key linking to a project.';
-COMMENT ON COLUMN task.user_id IS 'Foreign key linking to the task owner.';
-COMMENT ON COLUMN task.task_title IS 'Title or summary of the task.';
-COMMENT ON COLUMN task.task_description IS 'Detailed description of the task.';
-COMMENT ON COLUMN task.due_date IS 'Optional deadline for the task.';
-COMMENT ON COLUMN task.completed IS 'Boolean flag indicating if the task is completed.';
-COMMENT ON COLUMN task.created_at IS 'Timestamp when the task was created.';
-COMMENT ON COLUMN task.updated_at IS 'Timestamp when the task was last updated.';
+COMMENT ON TABLE tasks IS 'Stores individual tasks assigned to user.';
+COMMENT ON COLUMN tasks.id IS 'Primary key for the task.';
+COMMENT ON COLUMN tasks.project_id IS 'Optional foreign key linking to a project.';
+COMMENT ON COLUMN tasks.user_id IS 'Foreign key linking to the task owner.';
+COMMENT ON COLUMN tasks.task_title IS 'Title or summary of the task.';
+COMMENT ON COLUMN tasks.task_description IS 'Detailed description of the task.';
+COMMENT ON COLUMN tasks.due_date IS 'Optional deadline for the task.';
+COMMENT ON COLUMN tasks.completed IS 'Boolean flag indicating if the task is completed.';
+COMMENT ON COLUMN tasks.created_at IS 'Timestamp when the task was created.';
+COMMENT ON COLUMN tasks.updated_at IS 'Timestamp when the task was last updated.';
 
 -- ALTER
--- ALTER TABLE task ADD priority VARCHAR(20) DEFAULT 'standard';
--- ALTER TABLE task ADD comments TEXT;
+-- ALTER TABLE tasks ADD priority VARCHAR(20) DEFAULT 'standard';
+-- ALTER TABLE tasks ADD comments TEXT;
 
 -- UPDATE
--- UPDATE task SET priority = 'urgent' WHERE id = '...';
+-- UPDATE tasks SET priority = 'urgent' WHERE id = '...';
 
 -- ****************************************************************
 
-CREATE TABLE notification (
+CREATE TABLE notifications (
     id UUID PRIMARY KEY,
     user_id UUID NOT NULL,
     message TEXT NOT NULL,
@@ -97,19 +97,19 @@ CREATE TABLE notification (
 );
 
 -- COMMENT
-COMMENT ON TABLE notification IS 'Stores system or user-generated notifications.';
-COMMENT ON COLUMN notification.id IS 'Primary key for the notification.';
-COMMENT ON COLUMN notification.user_id IS 'Foreign key linking to the recipient user.';
-COMMENT ON COLUMN notification.message IS 'Content of the notification.';
-COMMENT ON COLUMN notification.read IS 'Boolean flag indicating if the notification has been read.';
-COMMENT ON COLUMN notification.created_at IS 'Timestamp when the notification was created.';
-COMMENT ON COLUMN notification.updated_at IS 'Timestamp when the notification was last updated.';
+COMMENT ON TABLE notifications IS 'Stores system or user-generated notifications.';
+COMMENT ON COLUMN notifications.id IS 'Primary key for the notification.';
+COMMENT ON COLUMN notifications.user_id IS 'Foreign key linking to the recipient user.';
+COMMENT ON COLUMN notifications.message IS 'Content of the notification.';
+COMMENT ON COLUMN notifications.read IS 'Boolean flag indicating if the notification has been read.';
+COMMENT ON COLUMN notifications.created_at IS 'Timestamp when the notification was created.';
+COMMENT ON COLUMN notifications.updated_at IS 'Timestamp when the notification was last updated.';
 
 -- ALTER
--- ALTER TABLE notification ADD notification_type VARCHAR(50) DEFAULT 'standard';
+-- ALTER TABLE notifications ADD notification_type VARCHAR(50) DEFAULT 'standard';
 
 -- UPDATE
--- UPDATE notification SET notification_type = 'urgent' WHERE id = '...';
+-- UPDATE notifications SET notification_type = 'urgent' WHERE id = '...';
 
 -- ****************************************************************
 

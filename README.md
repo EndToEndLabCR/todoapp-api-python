@@ -1,10 +1,10 @@
 # Data Dictionary – ToDoApp
 
-## Table: user
+## Table: users
 
 Stores registered users of the application.
 
-### Columns user
+### Columns users
 
 id (UUID): Unique identifier for the user. [Primary Key]
 
@@ -18,11 +18,11 @@ created_at (TIMESTAMP): Timestamp of user creation. [Default: current timestamp]
 
 updated_at (TIMESTAMP): Timestamp of user update. [Auto-updated on modification]
 
-## Table: project
+## Table: projects
 
 Represents a project created by a user, grouping related tasks.
 
-### Columns project
+### Columns projects
 
 id (UUID): Unique identifier for the project. [Primary Key]
 
@@ -36,11 +36,11 @@ created_at (TIMESTAMP): Timestamp of project creation. [Default: current timesta
 
 updated_at (TIMESTAMP): Timestamp of project update. [Auto-updated on modification]
 
-## Table: task
+## Table: tasks
 
 Defines individual tasks assigned to users, optionally linked to a project.
 
-### Columns task
+### Columns tasks
 
 id (UUID): Unique identifier for the task. [Primary Key]
 
@@ -60,11 +60,11 @@ created_at (TIMESTAMP): Timestamp of task creation. [Default: current timestamp]
 
 updated_at (TIMESTAMP): Timestamp of task update. [Auto-updated on modification]
 
-## Table: notification
+## Table: notifications
 
 Stores system-generated messages for users (e.g., reminders, alerts).
 
-### Columns notification
+### Columns notifications
 
 id (UUID): Unique identifier for the notification. [Primary Key]
 
